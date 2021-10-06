@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "eddeaebf-529a-4ae4-8f7a-c0ab9e0b6ae6",
+		"name": "Madde 22- POSTMAN",
+		"description": "# Postman Basic API TEST for Madde22_Case\n\n## Requests:\n1. Get All Contents : Returns all Contents as JSON Array. Takes no parameter.\n\n2. Get Content By Content Id : Returns Content by given ID. Takes Content's ID as \"content_id\" in Request Query\n\n3.Get Comments By Content Id : Returns Comments that related Comment that given ID. Takes Content's ID as \"content_id\" in Request JSON Body\n\n4.Add New Content : Adds given \"content\" and \"title\" in Request Text as Content and returns that Content. Takes Content's Body as \"content\" and Content's Title as \"title\" in Request JSON Body\n\n5. Add New Comment : Adds given \"comment\" as Comment to Content by given ID. Takes Content's ID as \"content_id\" and Comment Text as \"comment\" in Request JSON Body\n\n\nOptional : There is some functions for ContentMetas (Increase/Decrease Likes and Dislikes.), but to be simple, those functions does not here.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Contents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/contents",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"contents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Content By Content ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content_id\" : 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/content?content_id=1",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"content"
+					],
+					"query": [
+						{
+							"key": "content_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Comments By Content ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content_id\": 4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/comments",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Content",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\" : \"MY TEST CONTENT\",\r\n    \"title\" : \"MY TEST CONTENT TITLE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/add-content",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"add-content"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content_id\" : 4,\r\n    \"comment\" :\"This is My Test Comment For Test Content\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/add-comment",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"add-comment"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
