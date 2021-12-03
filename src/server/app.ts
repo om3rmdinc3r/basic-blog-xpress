@@ -24,7 +24,7 @@ class App {
 
 		this.app.get('/', (req: Request, res: Response) => {
       
-			res.send('Hello Blog. :)s');
+			res.send('Hello Blog. :)');
 		});
 	}
 	public async StartApp() {
